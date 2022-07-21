@@ -1,6 +1,7 @@
 ---
 - name: 'Deploying App on Vsphere with Tanzu'
   hosts: all
+  user: root
   ignore_errors: yes
   
   tasks:
