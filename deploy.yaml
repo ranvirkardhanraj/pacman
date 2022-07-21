@@ -7,7 +7,7 @@
   
   tasks:
   - name: 'Creating pod'
-    shell: kubectl run pacman --image=harbor.lab39.sunfire.lab/test/test-s:${BUILD_NUMBER}
+    command: kubectl run pacman --image=harbor.lab39.sunfire.lab/test/test-s:${BUILD_NUMBER}
     
   - name: 'Creating service'
-    shell: kubectl expose pod pacman --type=LoadBalancer --port=80 --target-port=80
+    command: kubectl expose pod pacman --type=LoadBalancer --port=80 --target-port=80
