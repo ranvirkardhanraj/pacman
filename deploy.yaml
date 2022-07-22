@@ -9,7 +9,7 @@
     shell: 'kubectl create ns demo-ns'
       
   - name: 'Creating pod'
-    shell: 'kubectl run pacman --image=harbor.lab39.sunfire.lab/test/test:"{{ tags }}" -n demo-ns'
+    shell: 'kubectl run pacman --image=harbor.lab39.sunfire.lab/test/test:tags -n demo-ns'
     
   - name: 'Creating service'
     shell: 'kubectl expose pod pacman --type=LoadBalancer --port=80 --target-port=80 -n demo-ns'
