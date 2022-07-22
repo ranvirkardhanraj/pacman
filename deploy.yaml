@@ -6,14 +6,10 @@
   
   tasks:
   - name: 'Creating namespace demo-ns'
-    k8s:
-      name: demo-ns
-      api_version: v1
-      kind: Namespace
-      state: present
+    shell: 'kubectl create ns -n demo-ns'
       
   - name: 'Creating pod'
-    shell: "kubectl run pacman --image=harbor.lab39.sunfire.lab/test/test-s:${BUILD_NUMBER} -n demo-ns"
+    shell: 'kubectl run pacman --image=harbor.lab39.sunfire.lab/test/test-s:${BUILD_NUMBER} -n demo-ns'
     
   - name: 'Creating service'
-    shell: "kubectl expose pod pacman --type=LoadBalancer --port=80 --target-port=80 -n demo-ns"
+    shell: 'kubectl expose pod pacman --type=LoadBalancer --port=80 --target-port=80 -n demo-ns'
