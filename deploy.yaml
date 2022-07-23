@@ -12,8 +12,41 @@
       kind: Namespace
       state: present
       
-  - name: 'Creating pod'
-    shell: 'kubectl run pacmantags --image=10.39.100.5/test/test:tags -n demo-ns'
+  - name: 'Creating pod pacmantags'
+    k8s:
+      state: present
+      definition:
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          name: pacmantags
+          namespace: demo-ns
+          labels:
+            app: game
+        spec:
+          imagePullSecrets:
+          - name: regcred
+          containers:
+          - name: pacmantags
+            image: 10.39.100.5/test/test-s:tags
     
   - name: 'Creating service'
-    shell: 'kubectl expose pod pacmantags --type=LoadBalancer --port=80 --target-port=80 -n demo-ns'
+    k8s:
+      state: present
+      definition:
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: pacman-service
+          namespace: demo-ns
+          labels:
+            app: game
+        spec:
+          type: LoadBalancer
+          selector:
+            app: game
+          ports:
+          - protocol: TCP
+            targetPort: 80
+            name: pacmanport
+            port: 80
