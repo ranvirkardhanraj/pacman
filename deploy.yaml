@@ -7,10 +7,10 @@
   tasks:
   - name: 'Creating namespace demo-ns'
      k8s:
-      name: demo-ns
-      api_version: v1
-      kind: Namespace
-      state: present
+       name: demo-ns
+       api_version: v1
+       kind: Namespace
+       state: present
       
   - name: 'Creating pod'
     shell: 'kubectl run pacmantags --image=10.39.100.5/test/test:tags -n demo-ns'
