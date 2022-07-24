@@ -22,7 +22,7 @@
           name: pacmantags
           namespace: demo-ns
           labels:
-            app: game
+            app: gametags
         spec:
           imagePullSecrets:
           - name: regcred
