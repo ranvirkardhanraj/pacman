@@ -40,11 +40,11 @@
           name: pacman-service
           namespace: demo-ns
           labels:
-            app: game
+            app: gametags
         spec:
           type: LoadBalancer
           selector:
-            app: game
+            app: gametags
           ports:
           - protocol: TCP
             targetPort: 80
