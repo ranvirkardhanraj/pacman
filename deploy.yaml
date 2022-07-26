@@ -28,7 +28,7 @@
           - name: regcred
           containers:
           - name: pacmantags
-            image: 10.39.99.4/test/test-s:tags
+            image: harbor.lab39.sunfire.lab/test/test-s:tags
     
   - name: 'Creating service'
     k8s:
