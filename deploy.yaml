@@ -24,8 +24,6 @@
           labels:
             app: gametags
         spec:
-          imagePullSecrets:
-          - name: regcred
           containers:
           - name: pacmantags
             image: harbor.lab39.sunfire.lab/test/test-s:tags
