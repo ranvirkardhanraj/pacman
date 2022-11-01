@@ -1,4 +1,5 @@
 b=1/1
+ssh root@192.168.30.161 kubectl create deployment pacman --image=dhanrajranvirkar/pacman:latest
 while true
 do
 	i=$(ssh root@192.168.30.161 kubectl get deployment --no-headers | awk '{print $2}')
